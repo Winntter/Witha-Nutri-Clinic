@@ -1,31 +1,81 @@
-var tdWeight = document.querySelector(".info-peso");
-var tdHeight = document.querySelector(".info-altura");
+var patients = document.querySelectorAll(".paciente");
 
-var weight = tdWeight.textContent;
-var height = tdHeight.textContent;
+for (var i = 0; i < patients.length; i++) {
 
-var tdIMC = document.querySelector(".info-imc")
+    var patient = patients[i];
 
-// Validations:
+    var tdWeight = patient.querySelector(".info-peso");
+    var weight = tdWeight.textContent;
 
-let weightValidation = true; // Validation of Weight is Valid to open a resource.
-let heightValidation = true; // Validation of Height. Behind of the lines is the test of.
+    var tdHeight = patient.querySelector(".info-altura");
+    var height = tdHeight.textContent;
 
-if (weight < 0 || weight > 1000) {
-    console.log("Invalid Weight.")
-    weightValidation = false;
-    tdIMC.textContent = `Weight: ${weight} is Invalid. 確認して下さい。` // Template String code validation.
+    var tdImc = patient.querySelector(".info-imc");
+
+    var weightIsValid = true;
+    var heightIsValid = true;
+
+    if (weight <= 0 || weight >= 1000) {
+        console.log("Peso inválido!");
+        weightIsValid = false;
+        tdImc.textContent = `Weight: ${weight} is Invalid! 確認して下さい。`;
+        patient.classList.add("patient-invalid");
+    }
+
+    if (height <= 0 || height >= 3.00) {
+        console.log("Altura inválida!");
+        heightIsValid = false;
+        tdImc.textContent = `Height: ${height} is Invalid! 確認して下さい。`;
+        patient.classList.add("patient-invalid");
+    }
+
+  if (heightIsValid && weightIsValid) {
+        var imc = weight / (height * height);
+        tdImc.textContent = imc.toFixed(2);
+    }
 }
 
-if (height < 0 || height > 2.30) {
-    console.log("Invalid Height.")
-    heightValidation = false;
-    tdIMC.textContent = `Height: ${height} is Invalid. 確認して下さい。` // Template String code validation 
-}
+// Capturing the button and Add new Patients
 
-if (heightValidation && weightValidation) {
-    var IMC = weight / (height * height)
-    tdIMC.textContent = IMC;
-}
+var buttonCreate = document.querySelector("#adicionar-paciente");
+
+buttonCreate.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    var form = document.querySelector("#form-adiciona")
+
+    // Getters for get value from the Form;
+
+    var name = form.nome.value;
+    var weight = form.peso.value;
+    var height = form.altura.value;
+    var fatP = form.gordura.value;
+
+    // Creating a New <tr> and <td>
+
+    var patientTr = document.createElement("tr");
+
+    var nameTd = document.createElement("td");
+    var weightTd = document.createElement("td");
+    var heightTd = document.createElement("td");
+    var fatTd = document.createElement("td");
+    var bmiTd = document.createElement("td");
+
+    // Get Text content from: 
+
+    nameTd.textContent = name;
+    weightTd.textContent = weight;
+    heightTd.textContent = height;
+    fatTd.textContent = fatP;
+    // bmiTd.textContent = bmi
+
+    patientTr.appendChild(nameTd);
+    patientTr.appendChild(heightTd);
+    patientTr.appendChild(weightTd);
+    patientTr.appendChild(fatTd);
 
 
+    var table = document.querySelector("#tabela-pacientes");
+    table.appendChild(patientTr);
+    
+});

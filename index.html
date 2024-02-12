@@ -10,7 +10,7 @@
 
 	</head>
 	<body>
-
+		
 		<header>
 			<div class="container">
 				<h1>Witha Nutricionist</h1>
@@ -26,14 +26,14 @@
 							<th>Weight(kg)</th>
 							<th>Height(m)</th>
 							<th>Body fat (%)</th>
-							<th>IMC</th>
+							<th>BMI</th>
 						</tr>
 					</thead>
 					<tbody id="tabela-pacientes">
 						<tr class="paciente" >
 							<td class="info-nome">Anthony</td>
 							<td class="info-peso">100</td>
-							<td class="info-altura">2.60</td>
+							<td class="info-altura">2.00</td>
 							<td class="info-gordura">10</td>
 							<td class="info-imc">0</td>
 						</tr>
@@ -48,7 +48,7 @@
 
 						<tr class="paciente" >
 							<td class="info-nome">Line</td>
-							<td class="info-peso">54</td>
+							<td class="info-peso">65</td>
 							<td class="info-altura">1.64</td>
 							<td class="info-gordura">14</td>
 							<td class="info-imc">0</td>
@@ -73,6 +73,31 @@
 
 			</section>
 		</main>
+		<!--Add New Patient-->
+		<section class="container">
+
+			<h2 id="titulo-form">Implement a new Patient</h2>
+			<form id="form-adiciona">
+				<div class="grupo">
+					<label for="nome">Name:</label>
+					<input id="nome" name="nome" type="text" placeholder="Insert the Patient name" class="campo">
+				</div>
+				<div class="grupo">
+					<label for="altura">Height:</label>
+					<input id="altura" name="altura" type="text" placeholder="Insert the Patient Height" class="campo campo-medio">
+				</div>
+				<div class="grupo">
+					<label for="peso">Weight:</label>
+					<input id="peso" name="peso" type="text" placeholder="Insert the Patient Weight" class="campo campo-medio">
+				</div>
+				<div class="grupo">
+					<label for="gordura">% Body Fat:</label>
+					<input id="gordura" type="text" placeholder="Insert the Patient Body Fat in percentage" class="campo campo-medio">
+				</div>
+				<button id="adicionar-paciente" class="botao bto-principal">Add</button>
+
+			</form>
+		</section>
 
 	</body>
 </html>
