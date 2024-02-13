@@ -44,11 +44,11 @@ buttonCreate.addEventListener("click", function(event) {
 
     var form = document.querySelector("#form-adiciona")
 
-    // Getters for get value from the Form;
+    // Get value from the Form;
 
     var name = form.nome.value;
-    var weight = form.peso.value;
-    var height = form.altura.value;
+    var height = form.peso.value;
+    var weight = form.altura.value;
     var fatP = form.gordura.value;
 
     // Creating a New <tr> and <td>
