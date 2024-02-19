@@ -5,10 +5,10 @@ for (var i = 0; i < patients.length; i++) {
     var patient = patients[i];
 
     var tdWeight = patient.querySelector(".info-peso");
-    var weight = tdWeight.textContent;
+    var weight = parseFloat(tdWeight.textContent);
 
     var tdHeight = patient.querySelector(".info-altura");
-    var height = tdHeight.textContent;
+    var height = parseFloat(tdHeight.textContent);
 
     var tdBmi = patient.querySelector(".info-imc");
 
@@ -35,12 +35,12 @@ for (var i = 0; i < patients.length; i++) {
     }
 }
 
-// Function to Calc BMI
+// Function to Calc BMI.
 
 function calcBMI(height, weight) {
     var bmi = 0;
 
-    bmi = parseFloat(weight) / (parseFloat(height) * parseFloat(height));;
-
-    return bmi.toFixed(2);
+    bmi = parseFloat(weight) / (parseFloat(height) * parseFloat(height));
+    const newBmi = bmi.toFixed(2);
+    return newBmi
 }

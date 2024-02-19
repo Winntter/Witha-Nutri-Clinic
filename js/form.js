@@ -30,7 +30,7 @@ buttonCreate.addEventListener("click", function(event) {
     weightTd.textContent = weight;
     heightTd.textContent = height;
     fatTd.textContent = fatP;
-    bmiTd.textContent = calcBMI(peso, altura);
+    bmiTd.textContent = calcBMI(height, weight);
 
     patientTr.appendChild(nameTd);
     patientTr.appendChild(heightTd);
