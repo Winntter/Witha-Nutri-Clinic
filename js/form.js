@@ -10,8 +10,8 @@ buttonCreate.addEventListener("click", function(event) {
     // Get value from the Form;
 
     var name = form.nome.value;
-    var height = form.peso.value;
-    var weight = form.altura.value;
+    var weight = form.peso.value;
+    var height = form.altura.value;
     var fatP = form.gordura.value;
 
     // Creating a New <tr> and <td>
@@ -27,8 +27,8 @@ buttonCreate.addEventListener("click", function(event) {
     // Get Text content from: 
 
     nameTd.textContent = name;
-    weightTd.textContent = weight;
-    heightTd.textContent = height;
+    heightTd.textContent = weight;
+    weightTd.textContent = height;
     fatTd.textContent = fatP;
     bmiTd.textContent = calcBMI(height, weight);
 
